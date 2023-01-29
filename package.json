@@ -1,0 +1,32 @@
+{
+  "name": "lottery",
+  "version": "0.1.0",
+  "description": "lottery",
+  "private": true,
+  "alias": {
+    "src": "./src"
+  },
+  "scripts": {
+    "start": "parcel ./src/index.html --dist-dir build",
+    "build:dev": "parcel build ./src/index.html --dist-dir build --public-url /app && npm run copy:public",
+    "build": "parcel build ./src/index.html --dist-dir build --public-url /app --no-source-maps && npm run copy:public",
+    "copy:public": "cp -r public/. build",
+    "check:type": "tsc --noEmit",
+    "clean": "del-cli dist && del-cli .cache && del-cli build"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.3",
+    "@truffle/hdwallet-provider": "^2.1.5",
+    "@types/react": "^18.0.27",
+    "del-cli": "^5.0.0",
+    "dotenv-flow": "^3.2.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "parcel": "^2.8.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.57.1",
+    "web3": "^1.8.1"
+  }
+}

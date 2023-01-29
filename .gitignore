@@ -1,0 +1,5 @@
+node_modules/
+build/
+.parcel-cache/
+.env.**
+.DS_Store
