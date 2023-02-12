@@ -15,9 +15,11 @@
     "clean": "del-cli dist && del-cli .cache && del-cli build"
   },
   "devDependencies": {
+    "@parcel/transformer-raw": "^2.8.3",
     "@parcel/transformer-sass": "^2.8.3",
     "@truffle/hdwallet-provider": "^2.1.5",
     "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
     "del-cli": "^5.0.0",
     "dotenv-flow": "^3.2.0",
     "typescript": "^4.9.4"
