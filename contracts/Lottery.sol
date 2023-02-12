@@ -1,14 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-/**
-    특정시간대에 자동뽑기 기능 구현하기
-    랜덤 알고리즘 더 예측불가능하게 하기, 그 전에 그 이유를 정확히 알기
-    메인넷에 배포하기 => 배포해도 법적 문제 없는지? 
- */
 contract Lottery {
   address[] public players;
-  address private manager;
+  address public manager;
   address payable public winner;
 
   constructor() {
@@ -21,11 +16,15 @@ contract Lottery {
     players.push(msg.sender);
   }
 
-  function random() public view returns (uint256) {
+  function random() private view returns (uint256) {
     return
       uint256(
         keccak256(abi.encodePacked(block.difficulty, block.timestamp, players))
       );
+  }
+
+  function getPlayers() public view returns (uint256) {
+    return players.length;
   }
 
   function pickWinnerAndTransferMoney() public {
